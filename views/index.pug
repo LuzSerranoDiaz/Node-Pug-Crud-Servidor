@@ -1,0 +1,37 @@
+extends layout
+block content 
+    main(class='container p-4')
+      div(class='row')
+        div(class='col-md-4')
+          // ********** Mensajes **************
+          if msj!=undefined
+            div(class='alert alert-'+msjType+' alert-dismissible fade show' role='alert')= msj 
+              button(type='button' class='close' data-dismiss='alert' aria-label='Close')
+                span(aria-hidden='true') &times;
+          // ********** Fin de Mensajes *******
+          div(class='card card-body')
+            form(action='/save' method=/*'get'*/'post')
+              div(class='form-group')
+                input(type='text' name='title' class='form-control' placeholder='Task Title' autofocus)
+              div(class='form-group')
+                textarea(name='description' rows='2' class='form-control' placeholder='Task Description' )  
+              input(type='submit' /*name='save_task'*/ class='btn btn-success btn-block' value='Save Task')              
+        div(class='col-md-8')
+          table(class='table table-bordered')
+            thead
+              tr
+                th Title 
+                th Description
+                th Action
+            tbody
+            - 
+            each item in lista             
+              tr
+                td= item.titulo
+                td= item.descripcion
+                td
+                  a(class='btn btn-secondary' href='/edit/'+item.id)
+                    i(class="fas fa-marker")                
+                  a(class='btn btn-danger' href='/delete/'+item.id)
+                    i(class='fas fa-trash-alt')
+    include includes/footer.pug

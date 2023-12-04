@@ -1,0 +1,9 @@
+doctype html
+html
+  include includes/head.pug
+  body
+    nav(class='navbar navbar-dark bg-dark')
+      div(class='container')
+        a(class='navbar-brand' href='/')= title
+    block content
+  include includes/footer.pug 
