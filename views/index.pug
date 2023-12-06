@@ -14,7 +14,7 @@ block content
               div(class='form-group')
                 input(type='text' name='title' class='form-control' placeholder='Task Title' autofocus)
               div(class='form-group')
-                textarea(name='description' rows='2' class='form-control' placeholder='Task Description' )  
+                input(type='text' name='description' rows='2' class='form-control' placeholder='Task Description' )  
               input(type='submit' /*name='save_task'*/ class='btn btn-success btn-block' value='Save Task')              
         div(class='col-md-8')
           table(class='table table-bordered')
@@ -28,7 +28,7 @@ block content
             each item in lista             
               tr
                 td= item.titulo
-                td= item.descripcion
+                td= item.description
                 td
                   a(class='btn btn-secondary' href='/edit/'+item.id)
                     i(class="fas fa-marker")                

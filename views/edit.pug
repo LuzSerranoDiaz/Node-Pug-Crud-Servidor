@@ -1,0 +1,13 @@
+extends layout
+block content 
+    main(class='container p-4')
+      div(class='row')
+        div(class='col-md-4')
+          div(class='card card-body')
+            form(action='/postedit/'+id+'' method=/*'get'*/'post')
+              div(class='form-group')
+                input(type='text' name='title' class='form-control' placeholder='Task Title' autofocus value=tit)
+              div(class='form-group')
+                input(type='text' name='description' rows='2' class='form-control' placeholder='Task Description' value=desc)  
+              input(type='submit' /*name='save_task'*/ class='btn btn-success btn-block' value='Save Task')              
+    include includes/footer.pug
